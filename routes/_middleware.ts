@@ -31,7 +31,6 @@ export async function handler(
   if (resp.status === 404) {
     return fallbackHandler(req, resp);
   }
-  await new Promise(resolve => setTimeout(resolve, 3000));
-  resp.headers.append('Cache-Control', 's-maxage=300,max-age=0')
+  resp.headers.append('Cache-Control', 's-maxage=300,max-age=0');
   return resp;
 }
